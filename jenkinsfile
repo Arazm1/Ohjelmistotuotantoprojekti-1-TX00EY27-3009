@@ -15,12 +15,6 @@ pipeline {
 
   stages {
 
-      stage('Checkout') {
-          steps {
-              git 'https://github.com/Arazm1/Ohjelmistotuotantoprojekti-1-TX00EY27-3009.git'
-          }
-      }
-
       stage('Run Tests') {
           steps {
               bat 'mvn clean test'
