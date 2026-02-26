@@ -54,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>TravelCal</mainClass>
+                            <mainClass>TemperatureConverter</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
