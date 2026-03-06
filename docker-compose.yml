@@ -1,0 +1,31 @@
+services:
+
+  db:
+    image: mariadb:11
+    container_name: speedavg-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Test12
+      MYSQL_DATABASE: speed1_db
+    ports:
+      - "3305:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    image: amirdirin/speedavg:latest   # <-- use Docker Hub image
+    container_name: speedavg-app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: Test12
+      DISPLAY: host.docker.internal:0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+volumes:
+  db_data:

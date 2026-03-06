@@ -1,63 +1,85 @@
-
 pipeline {
-  agent any
+    agent any
+    tools{
+        maven 'Maven3'
 
-  tools {
-      maven 'Maven 3.9.11'
-  }
+    }
 
-  environment {
-      PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
-      DOCKERHUB_CREDENTIALS_ID = 'docker-hub'
-      DOCKERHUB_REPO = 'arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009'
-      DOCKER_IMAGE_TAG = 'latest'
-  }
+    environment {
+        PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
+        DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
+        DOCKER_IMAGE = 'amirdirin/travelcalculator_db'
+        DOCKER_TAG = 'v1'
+    }
 
-  stages {
-          stage ('check') {
-              steps{
-                  git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_6HW'
-              }
+    stages {
+        stage('Setup Maven') {
+            steps {
+                script {
+                    def mvnHome = tool name: 'Maven3', type: 'maven'
+                    env.PATH = "${mvnHome}/bin:${env.PATH}"
+                }
+            }
+        }
 
-          }
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/ADirin/week7_calculator_with_db.git'
+            }
+        }
 
-          stage ('build'){
-              steps{
-                  bat 'mvn clean install'
-              }
-          }
+        stage('Build') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'mvn clean package'
+                    } else {
+                        bat 'mvn clean package'
+                    }
+                }
+            }
+        }
 
+        stage('Test') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'mvn test'
+                    } else {
+                        bat 'mvn test'
+                    }
+                }
+            }
+        }
 
-          stage ('Report'){
-              steps {
-                  bat 'mvn jacoco:report'
-              }
-          }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                    } else {
+                        bat "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                    }
+                }
+            }
+        }
 
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', env.DOCKERHUB_CREDENTIALS_ID) {
+                        docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").push()
+                    }
+                }
+            }
+        }
+    }
 
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
+            jacoco execPattern: '**/target/jacoco.exec'
+        }
+    }
+}
 
-          stage('Publish Coverage Report') {
-              steps {
-                  jacoco()
-              }
-          }
-
-          stage('build image') {
-              steps {
-                  script {
-                      docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
-                  }
-              }
-          }
-
-          stage('Push Docker Image to Docker Hub') {
-              steps {
-                  script {
-                      docker.withRegistry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS_ID) {
-                          docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
-                      }
-                  }
-              }
-          }
-      }
-  }
