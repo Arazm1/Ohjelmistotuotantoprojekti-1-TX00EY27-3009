@@ -8,14 +8,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private final SpeedService speedService = new SpeedService();
-
-    // ===== CALCULATION =====
     public static double speedAverage(double distance, double time) {
         return distance / time;
     }
 
-    // ===== UI =====
     @Override
     public void start(Stage stage) {
 
@@ -39,12 +35,7 @@ public class Main extends Application {
                 }
 
                 double speed = speedAverage(distance, time);
-
-                // SAVE TO DATABASE
-                speedService.saveSpeed(distance, time, speed);
-
                 resultLabel.setText("Average Speed: " + speed);
-
             } catch (NumberFormatException ex) {
                 resultLabel.setText("Invalid input!");
             }
@@ -67,3 +58,5 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+
