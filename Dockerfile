@@ -9,4 +9,4 @@ COPY . /app
 
 RUN mvn package
 
-CMD ["java", "-jar", "target/week6hw.jar"]
+CMD ["java", "-jar", "target/week7itd.jar"]
