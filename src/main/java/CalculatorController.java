@@ -15,12 +15,12 @@ public class CalculatorController {
             double num1 = Double.parseDouble(number1Field.getText());
             double num2 = Double.parseDouble(number2Field.getText());
 
-            double sum = num1 + num2;
-            double product = num1 * num2;
-            double subtract = num1 - num2;
+            double sum = add(num1, num2);
+            double product = product(num1, num2);
+            double subtract = subtract(num1, num2);
             double division;
             if(num2 != 0){
-                division = num1/num2;
+                division = division(num1, num2);
             }
             else{
                 division = Double.NaN;
@@ -34,5 +34,22 @@ public class CalculatorController {
         } catch (NumberFormatException e) {
             resultLabel.setText("Please enter valid numbers!");
         }
+    }
+
+
+    public double add(double num1, double num2){
+        return num1 + num2;
+    }
+
+    public double subtract(double num1, double num2){
+        return num1 - num2;
+    }
+
+    public double product(double num1, double num2){
+        return num1 * num2;
+    }
+
+    public double division(double num1, double num2){
+        return num1 / num2;
     }
 }
