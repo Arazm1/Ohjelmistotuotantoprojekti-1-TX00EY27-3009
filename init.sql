@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS calc_data;
-USE calc_data;
+CREATE DATABASE IF NOT EXISTS otp_week_7_calc_data;
+USE otp_week_7_calc_data;
 
 CREATE TABLE IF NOT EXISTS calc_results (
                                             id INT AUTO_INCREMENT PRIMARY KEY,
