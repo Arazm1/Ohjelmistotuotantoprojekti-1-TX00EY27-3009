@@ -7,8 +7,8 @@ services:
     restart: always
     environment:
       # make sure your DB_PASSWORD is correct mine is root
-      MYSQL_ROOT_PASSWORD: Test12
-      MYSQL_DATABASE: calc_data
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
       # Make sure your 3307 port is available
     ports:
       - "3307:3306"
@@ -20,17 +20,17 @@ services:
     #IMPORTANT docker build -t yourname/sum-product-fx .
     # docker push yourname/sum-product-fx: last
     # then you can change the image in the following statment
-    image: amirdirin/sum-product_fx:latest
+    image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:Week_7HW
     container_name: calculator-app
     depends_on:
       - db
     environment:
-      DB_HOST: db
+      DB_HOST: ${DB_HOST}
       DB_PORT: 3306
       # make sure your DB_USER name is correct mine is root
-      DB_USER: root
+      DB_USER: ${DB_USER}
       # make sure your DB_PASSWORD is correct mine is root
-      DB_PASSWORD: Test12
+      DB_PASSWORD: ${DB_PASSWORD}
       DISPLAY: host.docker.internal:0
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
