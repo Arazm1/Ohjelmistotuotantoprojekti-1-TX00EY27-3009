@@ -75,7 +75,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+                        <phase>test</phase> <!-- So it runs during mvn test as well.-->
                         <goals>
                             <goal>report</goal>
                         </goals>
