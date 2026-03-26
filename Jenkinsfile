@@ -9,7 +9,9 @@ pipeline {
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
         DOCKERHUB_CREDENTIALS_ID = 'docker-hub'
         DOCKERHUB_REPO = 'arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009'
-        DOCKER_IMAGE_TAG = 'latest'
+        //DOCKER_IMAGE_TAG = 'latest'
+        //origin-Week_xxTYPE (e.g. origin-Week_10LA)
+        DOCKER_IMAGE_TAG = "${env.GIT_BRANCH?.replaceAll('/', '-') ?: 'latest'}"
     }
 
     stages {
