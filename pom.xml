@@ -32,7 +32,7 @@
     </dependencies>
 
     <build>
-        <finalName>fuel_consumption</finalName>
+        <finalName>fuel_calculator</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
