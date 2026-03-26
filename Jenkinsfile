@@ -24,7 +24,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_9HW'
+                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_7HW'
             }
         }
 
@@ -44,9 +44,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'mvn clean test'
+                        sh 'mvn test'
                     } else {
-                        bat 'mvn clean test'
+                        bat 'mvn test'
                     }
                 }
             }
@@ -82,4 +82,3 @@ pipeline {
         }
     }
 }
-
