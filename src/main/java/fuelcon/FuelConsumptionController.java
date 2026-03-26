@@ -118,8 +118,10 @@ public class FuelConsumptionController {
             double totalCost = totalFuel * cost;
 
 
-            String result1 = String.format(localizedStrings.getOrDefault("result1.label", "Total Fuel Consumption: %.2f"), totalFuel);
-            String result2 = String.format(localizedStrings.getOrDefault("result2.label", "Total Consumption: %.2f"), totalCost);
+            String result1 = String.format(currentLocale,
+    localizedStrings.getOrDefault("result1.label", "Total Fuel: %.2f L"), totalFuel);
+String result2 = String.format(currentLocale,
+    localizedStrings.getOrDefault("result2.label", "Total Cost: %.2f"), totalCost);
             lblResultOne.setText(result1);
             lblResultTwo.setText(result2);
 

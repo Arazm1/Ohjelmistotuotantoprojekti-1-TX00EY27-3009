@@ -19,7 +19,7 @@ public class FuelConsumptionApp extends Application{
         VBox root = loader.load();
 
         // Create scene first
-        Scene scene = new Scene(root, 500, 600);
+        Scene scene = new Scene(root, 600, 600);
 
         // Then add CSS
         scene.getStylesheets().add(getClass().getResource("/fuelcon/styles.css").toExternalForm());
