@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools{
         maven 'Maven 3.9.11'
-        
+
     }
 
     environment {
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_10LA'
+                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_10HW'
             }
         }
 

@@ -1,4 +1,4 @@
-package org.example.avgspd.service;
+package fuelcon.service;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -14,7 +14,7 @@ public class LocalizationService {
 
         try {
             ResourceBundle bundle = ResourceBundle.getBundle(
-                    "org.example.avgspd.i18n.MessagesBundle",
+                    "fuelcon.i18n.MessagesBundle",
                     locale
             );
 
@@ -27,7 +27,7 @@ public class LocalizationService {
             // Fallback to English
             try {
                 ResourceBundle fallback = ResourceBundle.getBundle(
-                        "org.example.avgspd.i18n.MessagesBundle",
+                        "fuelcon.i18n.MessagesBundle",
                         new Locale("en", "UK")
                 );
                 for (String key : fallback.keySet()) {
@@ -35,19 +35,17 @@ public class LocalizationService {
                 }
             } catch (Exception ex) {
                 // Use hardcoded defaults as last resort
-                strings.put("title", "Average Calculator");
-                strings.put("distance", "Distance (kg):");
-                strings.put("time", "Time (h):");
-                strings.put("calculate", "Calculate avg");
-                strings.put("current_time", "Current Time: %s");
-                strings.put("time_format", "HH:mm:ss");
-                strings.put("avg_result", "AVG: %.1f - %s");
-                strings.put("error_invalid_input", "Please enter valid numbers");
+                strings.put("app.title", "Fuel consumption and Total cost Calculator");
+                strings.put("distance.label", "Distance (km):");
+                strings.put("consumption.label", "Fuel Consumption (L/100 km):");
+                strings.put("price.label", "Fuel Price (per liter)");
+                strings.put("calculate.button", "Calculate total fuel and cost");
+                //strings.put("time_format", "HH:mm:ss");
+                strings.put("result.label", "Result: %.1f - %s");
+                strings.put("invalid.input", "Please enter valid numbers");
             }
         }
 
         return strings;
     }
-
-
 }

@@ -1,4 +1,4 @@
-package org.example.avgspd;
+package avgspd;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import org.example.avgspd.service.LocalizationService;
+import avgspd.service.LocalizationService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -98,7 +98,7 @@ public class AverageSpeedController {
 
         // Update all UI text
         lblTitle.setText(localizedStrings.getOrDefault("title", "Average Calculator"));
-        lblDistant.setText(localizedStrings.getOrDefault("distant", "Distant (km):"));
+        lblDistant.setText(localizedStrings.getOrDefault("distance", "Distant (km):"));
         lblTime.setText(localizedStrings.getOrDefault("time", "Time (h):"));
         btnCalculate.setText(localizedStrings.getOrDefault("calculate", "Calculate Average Speed"));
 
