@@ -22,6 +22,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency><groupId>org.openjfx</groupId> <artifactId>javafx</artifactId> <version>20.0.1</version> <type>pom</type> </dependency>
+        <dependency> <groupId>org.openjfx</groupId> <artifactId>javafx-graphics</artifactId> <version>20.0.1</version> </dependency>
+        <dependency> <groupId>org.openjfx</groupId> <artifactId>javafx-fxml</artifactId> <version>20.0.1</version> </dependency>
+        <dependency> <groupId>org.openjfx</groupId> <artifactId>javafx-controls</artifactId> <version>20.0.1</version> </dependency>
+
+
     </dependencies>
 
     <build>
@@ -48,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>LocalizationMain</mainClass>
+                            <mainClass>fuelcon.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
