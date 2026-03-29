@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fuelconsumption-app
+  name: week10hw-app
   labels:
-    app: fuelconsumption-app
+    app: week10hw-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fuelconsumption-app
+      app: week10hw-app
   template:
     metadata:
       labels:
-        app: fuelconsumption-app
+        app: week10hw-app
     spec:
       containers:
-        - name: fuelconsumption-app
+        - name: week10hw-app
           image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:origin-Week_10HW
           imagePullPolicy: Never   # use Never for local images
           env:

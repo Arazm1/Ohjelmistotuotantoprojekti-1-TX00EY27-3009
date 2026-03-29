@@ -1,11 +1,14 @@
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 ENV DISPLAY=host.docker.internal:0.0
+ENV JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8"
+ENV LANG=ja_JP.UTF-8
+ENV LC_ALL=ja_JP.UTF-8
 
 # Install only required libraries (NO MAVEN HERE)
 RUN apt-get update && \
-    # apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 fonts-noto-cjk && \
-    apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 && \
+     apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 fonts-noto-cjk && \
+    # apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 && \
     apt-get clean
 
 # Download JavaFX SDK
@@ -25,4 +28,4 @@ RUN mvn clean package -DskipTests
 # Debug
 RUN ls -l target/
 
-CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/fuel_calculator.jar"]
+CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-Dfile.encoding=UTF-8", "-jar", "target/week10hw.jar"]
