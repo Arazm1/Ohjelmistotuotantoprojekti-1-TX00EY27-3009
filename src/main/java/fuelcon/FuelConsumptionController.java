@@ -145,12 +145,6 @@ String result2 = String.format(currentLocale,
         lblResultOne.setText("");
         lblResultTwo.setText("");
 
-        if (locale.getLanguage().equals("ja")) {
-            rootVBox.setStyle("-fx-font-family: 'Noto Sans CJK JP';");
-        } else {
-            rootVBox.setStyle(""); // reset for other languages
-        }
-
         localizedStrings = LocalizationService.getLocalizedStrings(locale);
 
         //Update all UI labels
