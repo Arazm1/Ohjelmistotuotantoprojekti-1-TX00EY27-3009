@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
-  <artifactId>avgspd</artifactId>
-  <name>avgspd</name>
+  <artifactId>fuelcon</artifactId>
+  <name>fuelcon</name>
   <version>1.0-SNAPSHOT</version>
   <build>
-    <finalName>average_speed</finalName>
+    <finalName>fuel_calculator</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -24,7 +24,7 @@
           <execution>
             <id>default-cli</id>
             <configuration>
-              <mainClass>avgspd.AverageSpeedApp</mainClass>
+              <mainClass>fuelcon.FuelConsumptionApp</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
@@ -51,7 +51,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>avgspd.AverageSpeedApp</mainClass>
+                  <mainClass>fuelcon.FuelConsumptionApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>
