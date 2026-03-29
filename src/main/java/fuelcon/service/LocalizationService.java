@@ -18,6 +18,10 @@ public class LocalizationService {
                     locale
             );
 
+            // TEMP DEBUG - remove after fixing
+            System.out.println("Loaded bundle for: " + bundle.getLocale());
+            System.out.println("app.title value: " + bundle.getString("app.title"));
+
             // Extract all keys
             for (String key : bundle.keySet()) {
                 strings.put(key, bundle.getString(key));
