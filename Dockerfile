@@ -15,6 +15,8 @@ ENV JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8"
 ENV LANG=ja_JP.UTF-8
 ENV LC_ALL=ja_JP.UTF-8
 
+RUN fc-cache -fv
+
 # Download JavaFX SDK
 RUN wget https://download2.gluonhq.com/openjfx/21/openjfx-21_linux-x64_bin-sdk.zip -O /tmp/openjfx.zip && \
     unzip /tmp/openjfx.zip -d /opt && \
