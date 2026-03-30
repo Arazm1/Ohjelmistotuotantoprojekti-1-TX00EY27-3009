@@ -144,7 +144,7 @@ String result2 = String.format(currentLocale,
          //Clear previous results
         lblResultOne.setText("");
         lblResultTwo.setText("");
-        
+
         localizedStrings = LocalizationService.getLocalizedStrings(locale);
 
         if (locale.getLanguage().equals("ja")) {
