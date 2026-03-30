@@ -58,5 +58,6 @@
 
     <!-- Time Display -->
     <Label fx:id="lblLocalTime" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="" />
+   <Label fx:id="lblLocalTime1" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Araz" />
 
 </VBox>
