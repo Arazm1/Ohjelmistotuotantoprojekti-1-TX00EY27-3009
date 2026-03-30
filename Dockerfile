@@ -8,7 +8,7 @@ ENV LC_ALL=ja_JP.UTF-8
 # Install only required libraries (NO MAVEN HERE)
 # apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 && \
 RUN apt-get update && \
-    apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 locales fonts-noto-cjk && \
+    apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 locales fonts-liberation fonts-dejavu-core fonts-noto-core fonts-noto-cjk fontconfig libfreetype6 && \
     locale-gen ja_JP.UTF-8 && \
     update-locale LANG=ja_JP.UTF-8 && \
     apt-get clean
