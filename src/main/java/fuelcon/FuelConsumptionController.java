@@ -144,9 +144,14 @@ String result2 = String.format(currentLocale,
          //Clear previous results
         lblResultOne.setText("");
         lblResultTwo.setText("");
-
+        
         localizedStrings = LocalizationService.getLocalizedStrings(locale);
 
+        if (locale.getLanguage().equals("ja")) {
+            rootVBox.setStyle("-fx-font-family: 'Noto Sans CJK JP';");
+        } else {
+            rootVBox.setStyle(""); // reset for other languages
+        }
         //Update all UI labels
         lblTitle.setText(localizedStrings.getOrDefault("app.title", "Fuel consumption and Total cost Calculator"));
         lblDistance.setText(localizedStrings.getOrDefault("distance.label", "Distance (km):"));
