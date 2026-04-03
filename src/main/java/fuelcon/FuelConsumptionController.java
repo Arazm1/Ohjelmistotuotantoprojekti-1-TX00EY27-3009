@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
 
+import fuelcon.service.CalculationService;
 import fuelcon.service.LocalizationService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class FuelConsumptionController {
+
+    private final CalculationService calculationService = new CalculationService();
 
     @FXML
     private VBox rootVBox;
@@ -119,11 +122,21 @@ public class FuelConsumptionController {
 
 
             String result1 = String.format(currentLocale,
-    localizedStrings.getOrDefault("result1.label", "Total Fuel: %.2f L"), totalFuel);
-String result2 = String.format(currentLocale,
-    localizedStrings.getOrDefault("result2.label", "Total Cost: %.2f"), totalCost);
+                    localizedStrings.getOrDefault("result1.label", "Total Fuel: %.2f L"), totalFuel);
+            String result2 = String.format(currentLocale,
+                localizedStrings.getOrDefault("result2.label", "Total Cost: %.2f"), totalCost);
             lblResultOne.setText(result1);
             lblResultTwo.setText(result2);
+
+
+
+            boolean success = calculationService.saveCalculation(distance, consumption, cost, totalFuel, totalCost, currentLocale.getLanguage());
+            if(success){
+                System.out.println("Successfully saved to DB!");
+            }
+            else{
+                System.out.println("Failed to save to DB!");
+            }
 
              
         } catch (NumberFormatException ex) {
