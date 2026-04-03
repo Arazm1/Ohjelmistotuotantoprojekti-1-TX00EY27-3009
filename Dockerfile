@@ -34,4 +34,4 @@ RUN mvn clean package -DskipTests
 # Debug
 RUN ls -l target/
 
-CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-Dfile.encoding=UTF-8", "-jar", "target/week10hw.jar"]
+CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-Dfile.encoding=UTF-8", "-jar", "target/week11hw.jar"]
