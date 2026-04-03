@@ -7,9 +7,10 @@ Run the SQL script file:
 
 
 
+
 ### Insert Data into DB Tables:
 
-#### ENGLISH (en)
+**ENGLISH (en)**
 ```sql
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'Fuel Consumption and Total Cost Calculator', 'en'),
@@ -27,7 +28,7 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('price.prompt',       'Enter fuel price', 'en');
 ```
 
-#### FRENCH (fr)
+**FRENCH (fr)**
 ```sql
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'Calculateur de consommation de carburant et coût total', 'fr'),
@@ -45,7 +46,7 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('price.prompt',       'Entrez le prix du carburant', 'fr');
 ```
 
-#### JAPANESE (ja)
+**JAPANESE (ja)**
 ```sql
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          '燃料消費量と総費用計算機', 'ja'),
@@ -63,7 +64,7 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('price.prompt',       '燃料価格を入力してください', 'ja');
 ```
 
-#### PERSIAN (fa)
+**PERSIAN (fa)**
 ```sql
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'ماشین‌حساب مصرف سوخت و هزینه کل', 'fa'),
@@ -81,7 +82,7 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('price.prompt',       'قیمت سوخت را وارد کنید', 'fa');
 ```
 
-
+<hr>
 
 
 
