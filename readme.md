@@ -31,7 +31,7 @@ Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotu
 
 
 ### 3. Insert Data into DB Tables:
-After creating successfully the Database and tables, insert multilingual labels using the following SQL script: [Localization data](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/localization-data.sql).
+After successfully creating the Database and tables, insert multilingual labels using the following SQL script: [Localization data](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/localization-data.sql).
 
 
 
