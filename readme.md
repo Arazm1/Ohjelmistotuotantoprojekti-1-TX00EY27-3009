@@ -6,8 +6,10 @@ A simple application to calculate fuel consumption and total trip cost. Supports
 ### <ins>Setup Instructions</ins>
 
 ### 1. Clone the Repository
-Start by cloning the project from Github.
+Start by cloning the project from Github:
+```cmd
 git clone -bWeek_11HW --single-branch https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git
+```
 
 
 
