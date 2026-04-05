@@ -1,14 +1,26 @@
 ## Fuel Tracker App
+A simple application to calculate fuel consumption and total trip cost. Supports multiple languages by a database-driven localization system.
 
 ### Setup Instructions
 
 ### 1. Database setup
-Run the SQL script file:
+**Requirements**
+* MariaDB or MySQL
+
+**Step 1**
+```sql
+CREATE DATABASE sep2_week3hw;
+USE sep2_week3hw;
+```
+
+**Step 2**
+Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/script.sql)
 
 
 
 
-### Insert Data into DB Tables:
+### 2. Insert Data into DB Tables:
+After creating successfully the Database and tables, insert multilingual labels using the following SQL scripts.
 
 **ENGLISH (en)**
 ```sql
@@ -84,46 +96,25 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 
 <hr>
 
+### 3. Database Configuration
+Your application needs to connect to the database using environmental-specific credentials.
+
+A .env-sample file is provided in the project.
+Create a new .env file in the root and copy the structure from .env-sample.
+Ensure that the .env is in the .gitignore file to prevent your credentials being leaked.
+
+Then replace the placeholder values with your own database configuration:
+
+There is a .env-sample file you can use. Create a new .env file with the similar structure and replace the sample values with your own.
+
+```.env
+DB_URL="jdbc:mysql://localhost:3306/sep2_week3hw"
+DB_USERNAME=your_user
+DB_PASSWORD=your_password
+```
 
 
+### 4. Running the Application
+Run the Main.java from your preferred IDE.
 
 
-
-
-
-
-
-
-
-
-
-
-Activate the xmin:
-PS C:\Program Files (x86)\xming> .\Xming.exe :0 -ac -multiwindow -clipboard
-
-to run the minikube in intellij first make sure minikube has it own docker daemo
-
-1. & minikube -p minikube docker-env --shell powershell | Invoke-Expression
-
-build the image
-
-2. docker build -t <your-image-name>:<tag> .
-for example docker build -t amirdirin/sep2_week2_avgspd:latest .
-
-Deploy to the kubernetes
-
-3.  kubectl apply -f avgspeed_deployment.yaml
-    kubectl get pods
-
- Ensure youu imagePullpolicy in the YAML is never
- 4. imagePullPolicy: Never
-
- check the pods status become Running
-
- READY   STATUS    RESTARTS
- 1/1     Running   0
-
-
- 5. to delete the minikube
- kubectl delete pod <pod-name>
- kubectl delete pod avgspeed-app-5984c69657-958w6
