@@ -23,6 +23,27 @@ spec:
               value: "host.minikube.internal:0.0"
             - name: JAVA_TOOL_OPTIONS
               value: "-Dprism.order=sw"
+
+            - name: DISPLAY
+              value: "host.minikube.internal:0.0"
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Dprism.order=sw"
+
+            - name: DB_URL
+              value: "jdbc:mysql://localhost:3306/sep2_week3hw"
+
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DB_USER
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DB_PASSWORD
+
           resources:
             requests:
               memory: "512Mi"
