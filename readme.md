@@ -5,7 +5,13 @@ A simple application to calculate fuel consumption and total trip cost. Supports
 
 ### <ins>Setup Instructions</ins>
 
-### 1. Database setup
+### 1. Clone the Repository
+Start by cloning the project from Github.
+git clone -bWeek_11HW --single-branch https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git
+
+
+
+### 2. Database setup
 **Requirements**
 * MariaDB or MySQL
 
@@ -21,14 +27,14 @@ Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotu
 
 
 
-### 2. Insert Data into DB Tables:
+### 3. Insert Data into DB Tables:
 After creating successfully the Database and tables, insert multilingual labels using the following SQL script: [Localization data](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/localization-data.sql).
 
 
 
 <hr>
 
-### 3. Database Configuration
+### 4. Database Configuration
 Your application needs to connect to the database using environmental-specific credentials.
 
 A .env-sample file is provided in the project.
@@ -47,9 +53,21 @@ DB_PASSWORD=your_password
 
 <hr>
 
-### 4. Running the Application
+### 5. Running the Application
 Run the Main.java from your preferred IDE.
 
+### 5. Running the Application
+Run the Main.java from your preferred IDE.
+
+
+### 6. Application Flow
+1. Application starts with default language (EN)
+2. UI strings are loaded from database
+3. User enters **trip data** (distance, consumption, price)
+4. Calculation is performed
+5. Result is displayed in selected language
+6. Record is saved in database
+7. User can switch language dynamically
 
 
 <!--
