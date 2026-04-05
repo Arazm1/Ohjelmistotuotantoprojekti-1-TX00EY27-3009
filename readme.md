@@ -1,7 +1,9 @@
 ## Fuel Tracker App
 A simple application to calculate fuel consumption and total trip cost. Supports multiple languages by a database-driven localization system.
 
-### Setup Instructions
+<hr>
+
+### <ins>Setup Instructions</ins>
 
 ### 1. Database setup
 **Requirements**
@@ -14,13 +16,41 @@ USE sep2_week3hw;
 ```
 
 **Step 2**
-Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/script.sql)
+Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/script.sql).
 
 
 
 
 ### 2. Insert Data into DB Tables:
-After creating successfully the Database and tables, insert multilingual labels using the following SQL scripts.
+After creating successfully the Database and tables, insert multilingual labels using the following SQL script: [Localization data](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/localization-data.sql).
+
+
+
+<hr>
+
+### 3. Database Configuration
+Your application needs to connect to the database using environmental-specific credentials.
+
+A .env-sample file is provided in the project.
+Create a new .env file in the root and copy the structure from .env-sample.
+Ensure that the .env is in the .gitignore file to prevent your credentials being leaked.
+
+Then replace the placeholder values with your own database configuration:
+
+At the end, the .env file should look something like this with your own values:
+
+```.env
+DB_URL="jdbc:mysql://localhost:3306/sep2_week3hw"
+DB_USERNAME=your_user
+DB_PASSWORD=your_password
+```
+
+<hr>
+
+### 4. Running the Application
+Run the Main.java from your preferred IDE.
+
+
 
 <!--
 **ENGLISH (en)**
@@ -95,28 +125,5 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('price.prompt',       'قیمت سوخت را وارد کنید', 'fa');
 ```
 -->
-
-<hr>
-
-### 3. Database Configuration
-Your application needs to connect to the database using environmental-specific credentials.
-
-A .env-sample file is provided in the project.
-Create a new .env file in the root and copy the structure from .env-sample.
-Ensure that the .env is in the .gitignore file to prevent your credentials being leaked.
-
-Then replace the placeholder values with your own database configuration:
-
-There is a .env-sample file you can use. Create a new .env file with the similar structure and replace the sample values with your own.
-
-```.env
-DB_URL="jdbc:mysql://localhost:3306/sep2_week3hw"
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
-```
-
-
-### 4. Running the Application
-Run the Main.java from your preferred IDE.
 
 
