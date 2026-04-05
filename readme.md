@@ -3,7 +3,7 @@ A simple application to calculate fuel consumption and total trip cost. Supports
 
 <hr>
 
-### Setup Instructions
+### <ins>Setup Instructions</ins>
 
 ### 1. Database setup
 **Requirements**
