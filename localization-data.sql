@@ -1,30 +1,5 @@
-## Fuel Tracker App
-A simple application to calculate fuel consumption and total trip cost. Supports multiple languages by a database-driven localization system.
 
-### Setup Instructions
-
-### 1. Database setup
-**Requirements**
-* MariaDB or MySQL
-
-**Step 1**
-```sql
-CREATE DATABASE sep2_week3hw;
-USE sep2_week3hw;
-```
-
-**Step 2**
-Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/script.sql)
-
-
-
-
-### 2. Insert Data into DB Tables:
-After creating successfully the Database and tables, insert multilingual labels using the following SQL scripts.
-
-<!--
-**ENGLISH (en)**
-```sql
+--ENGLISH (en)--
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'Fuel Consumption and Total Cost Calculator', 'en'),
 ('distance.label',     'Distance (km):', 'en'),
@@ -39,10 +14,10 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('distance.prompt',    'Enter distance', 'en'),
 ('consumption.prompt', 'Enter fuel consumption', 'en'),
 ('price.prompt',       'Enter fuel price', 'en');
-```
 
-**FRENCH (fr)**
-```sql
+
+--FRENCH (fr)--
+
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'Calculateur de consommation de carburant et coût total', 'fr'),
 ('distance.label',     'Distance (km):', 'fr'),
@@ -57,10 +32,10 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('distance.prompt',    'Entrez la distance', 'fr'),
 ('consumption.prompt', 'Entrez la consommation de carburant', 'fr'),
 ('price.prompt',       'Entrez le prix du carburant', 'fr');
-```
 
-**JAPANESE (ja)**
-```sql
+
+--JAPANESE (ja)--
+
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          '燃料消費量と総費用計算機', 'ja'),
 ('distance.label',     '距離 (km):', 'ja'),
@@ -75,10 +50,9 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('distance.prompt',    '距離を入力してください', 'ja'),
 ('consumption.prompt', '燃料消費量を入力してください', 'ja'),
 ('price.prompt',       '燃料価格を入力してください', 'ja');
-```
 
-**PERSIAN (fa)**
-```sql
+--PERSIAN (fa)--
+
 INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('app.title',          'ماشین‌حساب مصرف سوخت و هزینه کل', 'fa'),
 ('distance.label',     'مسافت (کیلومتر):', 'fa'),
@@ -93,30 +67,3 @@ INSERT INTO localization_strings (`key`, `value`, `language`) VALUES
 ('distance.prompt',    'مسافت را وارد کنید', 'fa'),
 ('consumption.prompt', 'مصرف سوخت را وارد کنید', 'fa'),
 ('price.prompt',       'قیمت سوخت را وارد کنید', 'fa');
-```
--->
-
-<hr>
-
-### 3. Database Configuration
-Your application needs to connect to the database using environmental-specific credentials.
-
-A .env-sample file is provided in the project.
-Create a new .env file in the root and copy the structure from .env-sample.
-Ensure that the .env is in the .gitignore file to prevent your credentials being leaked.
-
-Then replace the placeholder values with your own database configuration:
-
-There is a .env-sample file you can use. Create a new .env file with the similar structure and replace the sample values with your own.
-
-```.env
-DB_URL="jdbc:mysql://localhost:3306/sep2_week3hw"
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
-```
-
-
-### 4. Running the Application
-Run the Main.java from your preferred IDE.
-
-
