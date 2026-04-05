@@ -58,9 +58,7 @@ DB_PASSWORD=your_password
 ### 5. Running the Application
 Run the Main.java from your preferred IDE.
 
-### 5. Running the Application
-Run the Main.java from your preferred IDE.
-
+<hr>
 
 ### 6. Application Flow
 1. Application starts with default language (EN)
