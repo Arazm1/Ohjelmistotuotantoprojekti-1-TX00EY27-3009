@@ -24,6 +24,7 @@ USE sep2_week3hw;
 ```
 
 **Step 2**
+
 Execute the provided SQL script: [script](https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009/blob/Week_11HW/script.sql).
 
 
