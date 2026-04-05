@@ -107,7 +107,7 @@ Ensure that the .env is in the .gitignore file to prevent your credentials being
 
 Then replace the placeholder values with your own database configuration:
 
-There is a .env-sample file you can use. Create a new .env file with the similar structure and replace the sample values with your own.
+At the end, the .env file should look something like this with your own values:
 
 ```.env
 DB_URL="jdbc:mysql://localhost:3306/sep2_week3hw"
