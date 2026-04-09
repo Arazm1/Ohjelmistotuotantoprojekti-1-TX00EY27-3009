@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 
 public class FuelConsumptionController {
 
+    private FuelCalculator calculator = new FuelCalculator();
     private final CalculationService calculationService = new CalculationService();
 
     @FXML
@@ -117,9 +118,12 @@ public class FuelConsumptionController {
             }
 
             //double average = distant / time;
+            /*
             double totalFuel = (consumption / 100) * distance;
             double totalCost = totalFuel * cost;
-
+            */
+            double totalFuel = calculator.calculateTotalFuel(distance, consumption);
+            double totalCost = calculator.calculateTotalCost(totalFuel, cost);
 
             String result1 = String.format(currentLocale,
                     localizedStrings.getOrDefault("result1.label", "Total Fuel: %.2f L"), totalFuel);

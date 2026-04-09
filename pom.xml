@@ -84,7 +84,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>test</phase> <!-- So it runs during mvn test as well.-->
+                        <phase>verify</phase> <!-- "Deprecated comment": So it runs during mvn test as well.-->
                         <goals>
                             <goal>report</goal>
                         </goals>
