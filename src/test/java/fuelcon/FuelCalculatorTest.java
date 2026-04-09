@@ -34,4 +34,19 @@ public class FuelCalculatorTest {
     public void testHighConsumption() {
         assertEquals(150.0, calculator.calculateTotalFuel(500, 30), delta);
     }
+
+    @Test
+    public void testLargeDistance() {
+        assertEquals(750.0, calculator.calculateTotalFuel(5000, 15), 0.001);
+    }
+
+    @Test
+    public void testSmallConsumption() {
+        assertEquals(15.0, calculator.calculateTotalFuel(300, 5), 0.001);
+    }
+
+    @Test
+    public void testHighCost() {
+        assertEquals(200.0, calculator.calculateTotalCost(40.0, 5.0), 0.001);
+    }
 }

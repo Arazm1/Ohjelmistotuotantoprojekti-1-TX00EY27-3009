@@ -15,8 +15,7 @@ public class LocalizationServiceTest {
 
     @BeforeEach
     public void clearCache() {
-        // Load english first to reset state between tests
-        LocalizationService.loadStrings("reset");
+        LocalizationService.clearCache();
     }
 
     @Test
@@ -56,6 +55,13 @@ public class LocalizationServiceTest {
     }
 
     @Test
+    public void testGetStringsUnknownKey() {
+        LocalizationService.getLocalizedStrings(new Locale("en", "US"));
+        String value = LocalizationService.getStrings("en", "nonexistent.key");
+        assertEquals("nonexistent.key", value);
+    }
+
+    @Test
     public void testLoadStringsDirectly() {
         Map<String, String> strings = LocalizationService.loadStrings("en");
         assertNotNull(strings);
@@ -85,6 +91,42 @@ public class LocalizationServiceTest {
     @Test
     public void testFrenchLocalization() {
         Map<String, String> strings = LocalizationService.getLocalizedStrings(new Locale("fr", "FR"));
+        assertNotNull(strings);
+    }
+
+    @Test
+    public void testLoadStringsJapanese() {
+        Map<String, String> strings = LocalizationService.loadStrings("ja");
+        assertNotNull(strings);
+    }
+
+    @Test
+    public void testLoadStringsPersian() {
+        Map<String, String> strings = LocalizationService.loadStrings("fa");
+        assertNotNull(strings);
+    }
+
+    @Test
+    public void testGetHardcodedDefaultsNotEmpty() {
+        Map<String, String> defaults = LocalizationService.getHardcodedDefaults();
+        assertNotNull(defaults);
+        assertFalse(defaults.isEmpty());
+    }
+
+    @Test
+    public void testGetHardcodedDefaultsContainsKeys() {
+        Map<String, String> defaults = LocalizationService.getHardcodedDefaults();
+        assertTrue(defaults.containsKey("app.title"));
+        assertTrue(defaults.containsKey("result1.label"));
+        assertTrue(defaults.containsKey("invalid.input"));
+    }
+
+    @Test
+    public void testClearCache() {
+        LocalizationService.getLocalizedStrings(new Locale("en", "US"));
+        LocalizationService.clearCache();
+        // After clearing, loading again should hit DB again
+        Map<String, String> strings = LocalizationService.getLocalizedStrings(new Locale("en", "US"));
         assertNotNull(strings);
     }
 }

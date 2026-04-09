@@ -1,4 +1,4 @@
-package fuelcon.util;
+package fuelcon.utils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

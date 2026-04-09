@@ -1,12 +1,12 @@
 package fuelcon;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
 
 import fuelcon.service.CalculationService;
 import fuelcon.service.LocalizationService;
+import fuelcon.utils.TimeFormatter;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -170,7 +170,7 @@ public class FuelConsumptionController {
             rootVBox.setStyle(""); // reset for other languages
         }
         //Update all UI labels
-        lblTitle.setText(localizedStrings.getOrDefault("app.title", "Fuel consumption and Total cost Calculator"));
+        lblTitle.setText(localizedStrings.getOrDefault("app.title", "Fuel Consumption and Total Cost Calculator"));
         lblDistance.setText(localizedStrings.getOrDefault("distance.label", "Distance (km):"));
         lblConsumption.setText(localizedStrings.getOrDefault("consumption.label", "Fuel Consumption (L/100 km):"));
         lblPrice.setText(localizedStrings.getOrDefault("price.label", "Fuel Price (per liter)"));
@@ -225,14 +225,11 @@ public class FuelConsumptionController {
      * Display local time formatted for the current locale
      */
     private void displayLocalTime(Locale locale) {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-                localizedStrings.getOrDefault("time_format", "HH:mm:ss")
-        ).withLocale(locale);
-
+        String pattern = localizedStrings.getOrDefault("time_format", "HH:mm:ss");
+        String formatted = TimeFormatter.format(LocalDateTime.now(), pattern, locale);
         String timeStr = String.format(
                 localizedStrings.getOrDefault("current_time", "Current Time: %s"),
-                now.format(formatter)
+                formatted
         );
         lblLocalTime.setText(timeStr);
     }

@@ -77,11 +77,11 @@ public class LocalizationService {
         return strings.getOrDefault(key, key);
     }
 
-    private static void clearCache() {
+    protected static void clearCache() {
         cache.clear();
     }
 
-    private static Map<String, String> getHardcodedDefaults() {
+    protected static Map<String, String> getHardcodedDefaults() {
         Map<String, String> defaults = new HashMap<>();
         defaults.put("app.title", "Fuel Consumption and Total Cost Calculator");
         defaults.put("distance.label", "Distance (km):");
