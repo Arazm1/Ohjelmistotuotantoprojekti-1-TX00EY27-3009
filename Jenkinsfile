@@ -26,7 +26,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_11HW'
+                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_12HW'
             }
         }
 

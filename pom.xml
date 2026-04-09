@@ -49,7 +49,7 @@
     </dependencies>
 
     <build>
-        <finalName>week11hw</finalName>
+        <finalName>week12hw</finalName>
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>

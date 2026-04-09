@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: week11hw-app
+  name: week12hw-app
   labels:
-    app: week11hw-app
+    app: week12hw-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: week11hw-app
+      app: week12hw-app
   template:
     metadata:
       labels:
-        app: week11hw-app
+        app: week12hw-app
     spec:
       containers:
-        - name: week11hw-app
-          image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:origin-Week_11HW
+        - name: week12hw-app
+          image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:origin-Week_12HW
           imagePullPolicy: Never   # use Never for local images
           env:
             - name: DISPLAY
