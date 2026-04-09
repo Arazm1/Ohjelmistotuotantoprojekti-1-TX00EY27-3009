@@ -22,7 +22,6 @@ public class CalculationServiceTest {
     @Test
     public void testSaveCalculationWithZeroValues() {
         boolean result = service.saveCalculation(0, 0, 0, 0, 0, "en");
-        // just checking it doesn't throw an exception
         assertNotNull(result);
     }
 
