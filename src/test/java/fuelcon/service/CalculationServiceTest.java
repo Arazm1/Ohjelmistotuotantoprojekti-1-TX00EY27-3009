@@ -28,18 +28,11 @@ class CalculationServiceTest {
     @Mock
     private PreparedStatement mockStatement;
 
-    /**
-     * Intercept the getConnection() method to return mock connection
-     * instead of hitting the real database.
-     */
-    @BeforeEach
-    void setUp() throws SQLException {
-
-        doReturn(mockConnection).when(calculationService).getConnection();
-    }
 
     @Test
     void testSaveCalculation_Success() throws SQLException {
+        doReturn(mockConnection).when(calculationService).getConnection();
+
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeUpdate()).thenReturn(1); // Simulate 1 row inserted
 
@@ -58,6 +51,7 @@ class CalculationServiceTest {
 
     @Test
     void testSaveCalculation_NoRowsAffected() throws SQLException {
+        doReturn(mockConnection).when(calculationService).getConnection();
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeUpdate()).thenReturn(0); // Simulate insert failing silently
@@ -69,6 +63,8 @@ class CalculationServiceTest {
 
     @Test
     void testSaveCalculation_ThrowsSQLException() throws SQLException {
+        doReturn(mockConnection).when(calculationService).getConnection();
+
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeUpdate()).thenThrow(new SQLException("Database connection lost"));
 
