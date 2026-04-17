@@ -22,8 +22,6 @@ public class FuelConsumptionController {
     private FuelCalculator calculator = new FuelCalculator();
     private final CalculationService calculationService = new CalculationService();
 
-    private String INVALID_INPUT_KEY = "invalid.input";
-
     @FXML
     private VBox rootVBox;
 
