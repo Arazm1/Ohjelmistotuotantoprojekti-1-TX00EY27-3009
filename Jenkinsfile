@@ -26,7 +26,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'Week_12HW'
+                git url: 'https://github.com/Arazm1/ohjelmistotuotantoprojekti-1-tx00ey27-3009.git', branch: 'week_13HW'
             }
         }
 
@@ -50,6 +50,22 @@ pipeline {
                     } else {
                         bat 'mvn test'
                     }
+                }
+            }
+        }
+
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQubeServer'){
+                    bat """
+                         ${tool 'SonarScanner'}\\bin\\sonar-scanner ^
+                         -Dsonar.projectKey=devops-demo ^
+                         -Dsonar.sources=src ^
+                         -Dsonar.projectName=DevOps-Demo ^
+                         -Dsonar.host.url=http://localhost:9000 ^
+                         -Dsonar.login=${env.SONAR_TOKEN} ^
+                         -Dsonar.java.binaries=target/classes
+                     """
                 }
             }
         }
