@@ -6,6 +6,7 @@ import java.util.Map;
 
 import fuelcon.service.CalculationService;
 import fuelcon.service.LocalizationService;
+import fuelcon.utils.AppLogger;
 import fuelcon.utils.TimeFormatter;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -20,6 +21,8 @@ public class FuelConsumptionController {
 
     private FuelCalculator calculator = new FuelCalculator();
     private final CalculationService calculationService = new CalculationService();
+
+    private String INVALID_INPUT_KEY = "invalid.input";
 
     @FXML
     private VBox rootVBox;
@@ -117,11 +120,6 @@ public class FuelConsumptionController {
                 return;
             }
 
-            //double average = distant / time;
-            /*
-            double totalFuel = (consumption / 100) * distance;
-            double totalCost = totalFuel * cost;
-            */
             double totalFuel = calculator.calculateTotalFuel(distance, consumption);
             double totalCost = calculator.calculateTotalCost(totalFuel, cost);
 
@@ -136,10 +134,10 @@ public class FuelConsumptionController {
 
             boolean success = calculationService.saveCalculation(distance, consumption, cost, totalFuel, totalCost, currentLocale.getLanguage());
             if(success){
-                System.out.println("Successfully saved to DB!");
+                AppLogger.info("Successfully saved to DB!");
             }
             else{
-                System.out.println("Failed to save to DB!");
+                AppLogger.warn("Failed to save into DB");
             }
 
              

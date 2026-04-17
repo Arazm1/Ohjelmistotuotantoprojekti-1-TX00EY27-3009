@@ -26,15 +26,7 @@ public class CalculationService {
                 statement.setDouble(4, totalFuel);
                 statement.setDouble(5, totalCost);
                 statement.setString(6, language);
-                
-                /*
-                statement.setDouble(1, record.getDistance());
-                statement.setDouble(2, record.getConsumption());
-                statement.setDouble(3, record.getPrice());
-                statement.setDouble(4, record.getTotalFuel());
-                statement.setDouble(5, record.getTotalCost());
-                statement.setString(6, record.getLanguage());
-                */
+
                 int rowsAffected = statement.executeUpdate();
                 return rowsAffected > 0;
         }

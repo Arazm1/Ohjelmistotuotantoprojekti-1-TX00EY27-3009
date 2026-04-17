@@ -46,6 +46,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!--TestFX - for Unit testing -->
+        <dependency>
+            <groupId>org.testfx</groupId>
+            <artifactId>testfx-junit5</artifactId>
+            <version>4.0.18</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
