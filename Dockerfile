@@ -6,8 +6,10 @@ ENV DISPLAY=host.docker.internal:0.0
 # Install only required libraries (NO MAVEN HERE)
 # apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 && \
 RUN apt-get update && \
-    apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 locales fonts-liberation fonts-dejavu-core fonts-noto-core fonts-noto-cjk fonts-ipafont fontconfig libfreetype6 && \
+    apt-get install -y wget unzip libgtk-3-0 libgbm1 libx11-6 locales fonts-liberation fonts-dejavu-core fonts-noto-core fonts-noto-cjk fonts-ipafont fonts-noto-extra fontconfig libfreetype6 && \
     locale-gen ja_JP.UTF-8 && \
+    locale-gen fa_IR.UTF-8 && \
+    locale-gen en_US.UTF-8 && \
     update-locale LANG=ja_JP.UTF-8 && \
     apt-get clean
 
