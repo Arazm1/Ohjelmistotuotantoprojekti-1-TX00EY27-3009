@@ -66,7 +66,6 @@ public class LocalizationService {
             System.out.println("Loaded " + strings.size() + " strings for language: " + language);
         } catch (SQLException e) {
             System.out.println("Failed to load localization strings for: " + language);
-            e.printStackTrace();
         }
 
         return strings;
