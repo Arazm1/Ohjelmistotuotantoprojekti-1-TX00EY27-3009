@@ -46,9 +46,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'mvn verify'
+                        sh 'mvn clean verify'
                     } else {
-                        bat 'mvn verify'
+                        bat 'mvn clean verify'
                     }
                 }
             }

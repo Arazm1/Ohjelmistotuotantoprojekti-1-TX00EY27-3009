@@ -45,10 +45,10 @@ class AppLoggerTest {
         AppLogger.info(expectedMsg);
 
         assertEquals(1, testLogHandler.getRecords().size());
-        LogRecord record = testLogHandler.getRecords().get(0);
+        LogRecord logRecord = testLogHandler.getRecords().get(0);
 
-        assertEquals(Level.INFO, record.getLevel());
-        assertEquals(expectedMsg, record.getMessage());
+        assertEquals(Level.INFO, logRecord.getLevel());
+        assertEquals(expectedMsg, logRecord.getMessage());
     }
 
     @Test
@@ -58,10 +58,10 @@ class AppLoggerTest {
         AppLogger.warn(expectedMessage);
 
         assertEquals(1, testLogHandler.getRecords().size(), "Should have logged exactly one message");
-        LogRecord record = testLogHandler.getRecords().get(0);
+        LogRecord logRecord = testLogHandler.getRecords().get(0);
 
-        assertEquals(Level.WARNING, record.getLevel());
-        assertEquals(expectedMessage, record.getMessage());
+        assertEquals(Level.WARNING, logRecord.getLevel());
+        assertEquals(expectedMessage, logRecord.getMessage());
     }
 
     @Test
@@ -72,10 +72,10 @@ class AppLoggerTest {
         AppLogger.error(expectedMessage, expectedException);
 
         assertEquals(1, testLogHandler.getRecords().size(), "Should have logged exactly one message");
-        LogRecord record = testLogHandler.getRecords().get(0);
+        LogRecord logRecord = testLogHandler.getRecords().get(0);
 
-        assertEquals(Level.SEVERE, record.getLevel()); // java.util.logging uses SEVERE for errors
-        assertEquals(expectedMessage, record.getMessage());
-        assertSame(expectedException, record.getThrown(), "The thrown exception should match exactly");
+        assertEquals(Level.SEVERE, logRecord.getLevel()); // java.util.logging uses SEVERE for errors
+        assertEquals(expectedMessage, logRecord.getMessage());
+        assertSame(expectedException, logRecord.getThrown(), "The thrown exception should match exactly");
     }
 }

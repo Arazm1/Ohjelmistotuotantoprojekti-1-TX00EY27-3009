@@ -6,6 +6,10 @@ import java.util.logging.Logger;
 public class AppLogger {
     private static final Logger logger = Logger.getLogger("FuelConApp");
 
+    private AppLogger() {
+        throw new UnsupportedOperationException("Utility class");
+    }
+
     public static void info(String message){
         logger.log(Level.INFO, message);
     }
