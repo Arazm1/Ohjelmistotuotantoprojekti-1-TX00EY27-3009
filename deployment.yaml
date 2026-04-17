@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: week13hw-app
-          image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:origin-Week_12HW
+          image: arazz/ohjelmistotuotantoprojekti-1-tx00ey27-3009:origin-Week_13HW
           imagePullPolicy: Never   # use Never for local images
           env:
             - name: DISPLAY
