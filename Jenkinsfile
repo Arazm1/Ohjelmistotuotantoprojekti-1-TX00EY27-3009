@@ -54,10 +54,28 @@ pipeline {
             }
         }
 
+    /*
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQubeServer'){
                     bat 'mvn verify sonar:sonar'
+                }
+            }
+        }
+    */
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQubeServer') {
+                    bat """
+                    ${tool 'SonarScanner'}\\bin\\sonar-scanner ^
+                    -Dsonar.projectKey=devops-demo ^
+                    -Dsonar.sources=src/main/java ^
+                    -Dsonar.tests=src/test/java ^
+                    -Dsonar.java.binaries=target/classes ^
+                    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml ^
+                    -Dsonar.host.url=http://localhost:9000 ^
+                    -Dsonar.login=${env.SONAR_TOKEN}
+                    """
                 }
             }
         }
