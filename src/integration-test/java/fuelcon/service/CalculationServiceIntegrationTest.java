@@ -3,30 +3,30 @@ package fuelcon.service;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculationServiceTest {
+class CalculationServiceIntegrationTest {
 
     private final CalculationService service = new CalculationService();
 
     @Test
-    public void testSaveCalculationReturnsTrue() {
+    void testSaveCalculationReturnsTrue() {
         boolean result = service.saveCalculation(500, 8, 1.5, 40.0, 60.0, "en");
         assertTrue(result);
     }
 
     @Test
-    public void testSaveCalculationWithFrench() {
+    void testSaveCalculationWithFrench() {
         boolean result = service.saveCalculation(300, 6, 1.8, 18.0, 32.4, "fr");
         assertTrue(result);
     }
 
     @Test
-    public void testSaveCalculationWithZeroValues() {
+    void testSaveCalculationWithZeroValues() {
         boolean result = service.saveCalculation(0, 0, 0, 0, 0, "en");
         assertNotNull(result);
     }
 
     @Test
-    public void testGetConnectionNotNull() {
+    void testGetConnectionNotNull() {
         try {
             var conn = service.getConnection();
             assertNotNull(conn);
